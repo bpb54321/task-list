@@ -1,5 +1,5 @@
-import TaskItem from "./TaskItem.tsx";
-import { Task } from "../types/Task.ts";
+import TaskItem from "@/components/TaskItem.tsx";
+import type { Task } from "@/types/Task.ts";
 
 export interface TaskListProps {
   tasks: Task[];

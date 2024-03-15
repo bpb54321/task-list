@@ -1,7 +1,7 @@
+import TaskList from "@/components/TaskList.tsx";
+import { CompletionStatus } from "@/types/CompletionStatus.ts";
+import type { Task } from "@/types/Task.ts";
 import { useState } from "react";
-import TaskList from "./components/TaskList.tsx";
-import { Task } from "./types/Task.ts";
-import { CompletionStatus } from "./types/CompletionStatus.ts";
 
 const exampleTasks: Task[] = [
   {

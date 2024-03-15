@@ -1,4 +1,4 @@
-import { CompletionStatus } from "./CompletionStatus.ts";
+import type { CompletionStatus } from "@/types/CompletionStatus.ts";
 
 export interface Task {
   name: string;

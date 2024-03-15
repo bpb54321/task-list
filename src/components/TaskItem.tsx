@@ -1,4 +1,4 @@
-import { Task } from "../types/Task.ts";
+import type { Task } from "@/types/Task.ts";
 
 export interface TaskItemProps {
   task: Task;
