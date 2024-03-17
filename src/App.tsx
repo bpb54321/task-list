@@ -1,7 +1,7 @@
 import NewTaskForm from "@/components/TaskCreationForm.tsx";
 import TaskList from "@/components/TaskList.tsx";
+import { useTasks } from "@/hooks/useTasks.ts";
 import { Task } from "@/types/Task.ts";
-import { useState } from "react";
 
 const exampleTasks: Task[] = [
   new Task("Get dressed", false),
@@ -9,17 +9,12 @@ const exampleTasks: Task[] = [
 ];
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(exampleTasks);
-  const handleCreateTask = (newTask: Task) => {
-    setTasks([...tasks, newTask]);
-  };
-  const handleDeleteTask = (taskId: string) => {
-    setTasks(tasks.filter((task) => task.id !== taskId));
-  };
-  const handleTaskCompletionStatusChange = (taskId: string) => {
-    const updatedTasks = tasks.map((task) => task.copy(task.id === taskId));
-    setTasks(updatedTasks);
-  };
+  const {
+    tasks,
+    handleCreateTask,
+    handleDeleteTask,
+    handleTaskCompletionStatusChange,
+  } = useTasks(exampleTasks);
   return (
     <>
       <TaskList
