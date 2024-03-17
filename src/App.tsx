@@ -1,21 +1,23 @@
+import NewTaskForm from "@/components/TaskCreationForm.tsx";
 import TaskList from "@/components/TaskList.tsx";
 import { CompletionStatus } from "@/types/CompletionStatus.ts";
-import type { Task } from "@/types/Task.ts";
+import { Task } from "@/types/Task.ts";
 import { useState } from "react";
 
 const exampleTasks: Task[] = [
-  {
-    name: "Get dressed",
-    completionStatus: CompletionStatus.Uncompleted,
-  },
-  { name: "Brush teeth", completionStatus: CompletionStatus.Completed },
+  new Task("Get dressed", CompletionStatus.Uncompleted),
+  new Task("Brush teeth", CompletionStatus.Completed),
 ];
 
 function App() {
-  const [tasks] = useState<Task[]>(exampleTasks);
+  const [tasks, setTasks] = useState<Task[]>(exampleTasks);
+  const handleCreateTask = (newTask: Task) => {
+    setTasks([...tasks, newTask]);
+  };
   return (
     <>
       <TaskList tasks={tasks} />
+      <NewTaskForm onCreateTask={handleCreateTask} />
     </>
   );
 }

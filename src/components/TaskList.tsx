@@ -6,6 +6,6 @@ export interface TaskListProps {
 }
 
 function TaskList({ tasks }: TaskListProps) {
-  return tasks.map((task) => <TaskItem task={task} />);
+  return tasks.map((task) => <TaskItem key={task.id} task={task} />);
 }
 export default TaskList;
