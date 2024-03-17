@@ -1,5 +1,4 @@
 import CompletionStatus from "@/components/CompletionStatus.tsx";
-import { CompletionStatus as CompletionStatusEnum } from "@/types/CompletionStatus.ts";
 import type { Task } from "@/types/Task.ts";
 
 export interface TaskItemProps {
@@ -14,8 +13,7 @@ function TaskItem({ task, onDelete, onCompletionStatusChange }: TaskItemProps) {
       <input
         type="checkbox"
         onChange={() => onCompletionStatusChange(task.id)}
-        // TODO: Refactor to task.isCompleted() method.
-        checked={task.completionStatus === CompletionStatusEnum.Completed}
+        checked={task.isCompleted()}
       />
       <span>{task.name}</span>|
       <CompletionStatus completionStatus={task.completionStatus} />

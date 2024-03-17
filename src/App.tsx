@@ -18,17 +18,7 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
   const handleTaskCompletionStatusChange = (taskId: string) => {
-    const updatedTasks = tasks.map((task) => {
-      let updatedCompletionStatus = task.completionStatus;
-      if (taskId === task.id) {
-        // TODO: Refactor to Task.toggledCompletionStatus method.
-        updatedCompletionStatus =
-          task.completionStatus === CompletionStatus.Completed
-            ? CompletionStatus.Uncompleted
-            : CompletionStatus.Completed;
-      }
-      return new Task(task.name, updatedCompletionStatus);
-    });
+    const updatedTasks = tasks.map((task) => task.copy(task.id === taskId));
     setTasks(updatedTasks);
   };
   return (
