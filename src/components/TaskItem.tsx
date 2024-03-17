@@ -3,13 +3,17 @@ import type { Task } from "@/types/Task.ts";
 
 export interface TaskItemProps {
   task: Task;
+  onDelete: (taskId: string) => void;
 }
 
-function TaskItem({ task }: TaskItemProps) {
+function TaskItem({ task, onDelete }: TaskItemProps) {
   return (
     <div>
       <span>{task.name}</span>|
       <CompletionStatus completionStatus={task.completionStatus} />
+      <button type="button" onClick={() => onDelete(task.id)}>
+        Delete task
+      </button>
     </div>
   );
 }

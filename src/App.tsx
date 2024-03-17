@@ -14,9 +14,12 @@ function App() {
   const handleCreateTask = (newTask: Task) => {
     setTasks([...tasks, newTask]);
   };
+  const handleDeleteTask = (taskId: string) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
   return (
     <>
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} onDeleteTask={handleDeleteTask} />
       <NewTaskForm onCreateTask={handleCreateTask} />
     </>
   );
