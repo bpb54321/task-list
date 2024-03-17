@@ -4,11 +4,21 @@ import type { Task } from "@/types/Task.ts";
 export interface TaskListProps {
   tasks: Task[];
   onDeleteTask: (taskId: string) => void;
+  onTaskCompletionStatusChange: (taskId: string) => void;
 }
 
-function TaskList({ tasks, onDeleteTask }: TaskListProps) {
+function TaskList({
+  tasks,
+  onDeleteTask,
+  onTaskCompletionStatusChange,
+}: TaskListProps) {
   return tasks.map((task) => (
-    <TaskItem key={task.id} task={task} onDelete={onDeleteTask} />
+    <TaskItem
+      key={task.id}
+      task={task}
+      onDelete={onDeleteTask}
+      onCompletionStatusChange={onTaskCompletionStatusChange}
+    />
   ));
 }
 export default TaskList;

@@ -17,9 +17,27 @@ function App() {
   const handleDeleteTask = (taskId: string) => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
+  const handleTaskCompletionStatusChange = (taskId: string) => {
+    const updatedTasks = tasks.map((task) => {
+      let updatedCompletionStatus = task.completionStatus;
+      if (taskId === task.id) {
+        // TODO: Refactor to Task.toggledCompletionStatus method.
+        updatedCompletionStatus =
+          task.completionStatus === CompletionStatus.Completed
+            ? CompletionStatus.Uncompleted
+            : CompletionStatus.Completed;
+      }
+      return new Task(task.name, updatedCompletionStatus);
+    });
+    setTasks(updatedTasks);
+  };
   return (
     <>
-      <TaskList tasks={tasks} onDeleteTask={handleDeleteTask} />
+      <TaskList
+        tasks={tasks}
+        onDeleteTask={handleDeleteTask}
+        onTaskCompletionStatusChange={handleTaskCompletionStatusChange}
+      />
       <NewTaskForm onCreateTask={handleCreateTask} />
     </>
   );
