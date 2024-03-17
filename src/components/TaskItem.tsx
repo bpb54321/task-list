@@ -1,3 +1,4 @@
+import CompletionStatus from "@/components/CompletionStatus.tsx";
 import type { Task } from "@/types/Task.ts";
 
 export interface TaskItemProps {
@@ -5,7 +6,12 @@ export interface TaskItemProps {
 }
 
 function TaskItem({ task }: TaskItemProps) {
-  return <div>{task.name}</div>;
+  return (
+    <div>
+      <span>{task.name}</span>|
+      <CompletionStatus completionStatus={task.completionStatus} />
+    </div>
+  );
 }
 
 export default TaskItem;
