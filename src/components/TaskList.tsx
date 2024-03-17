@@ -12,13 +12,17 @@ function TaskList({
   onDeleteTask,
   onTaskCompletionStatusChange,
 }: TaskListProps) {
-  return tasks.map((task) => (
-    <TaskItem
-      key={task.id}
-      task={task}
-      onDelete={onDeleteTask}
-      onCompletionStatusChange={onTaskCompletionStatusChange}
-    />
-  ));
+  return (
+    <ul>
+      {tasks.map((task) => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          onDelete={onDeleteTask}
+          onCompletionStatusChange={onTaskCompletionStatusChange}
+        />
+      ))}
+    </ul>
+  );
 }
 export default TaskList;

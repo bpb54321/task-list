@@ -9,7 +9,7 @@ export interface TaskItemProps {
 
 function TaskItem({ task, onDelete, onCompletionStatusChange }: TaskItemProps) {
   return (
-    <div>
+    <li>
       <input
         type="checkbox"
         onChange={() => onCompletionStatusChange(task.id)}
@@ -20,7 +20,7 @@ function TaskItem({ task, onDelete, onCompletionStatusChange }: TaskItemProps) {
       <button type="button" onClick={() => onDelete(task.id)}>
         Delete task
       </button>
-    </div>
+    </li>
   );
 }
 
