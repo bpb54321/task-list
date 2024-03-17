@@ -1,12 +1,11 @@
 import NewTaskForm from "@/components/TaskCreationForm.tsx";
 import TaskList from "@/components/TaskList.tsx";
-import { CompletionStatus } from "@/types/CompletionStatus.ts";
 import { Task } from "@/types/Task.ts";
 import { useState } from "react";
 
 const exampleTasks: Task[] = [
-  new Task("Get dressed", CompletionStatus.Uncompleted),
-  new Task("Brush teeth", CompletionStatus.Completed),
+  new Task("Get dressed", false),
+  new Task("Brush teeth", true),
 ];
 
 function App() {

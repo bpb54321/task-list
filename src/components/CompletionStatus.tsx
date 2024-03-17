@@ -1,16 +1,8 @@
-import { CompletionStatus as CompletionStatusEnum } from "@/types/CompletionStatus.ts";
-
 interface CompletionStatusProps {
-  completionStatus: CompletionStatusEnum;
+  isCompleted: boolean;
 }
-function CompletionStatus({ completionStatus }: CompletionStatusProps) {
-  return (
-    <span>
-      {completionStatus === CompletionStatusEnum.Uncompleted
-        ? "Uncompleted"
-        : "Completed"}
-    </span>
-  );
+function CompletionStatus({ isCompleted }: CompletionStatusProps) {
+  return <span>{isCompleted ? "Completed" : "Uncompleted"}</span>;
 }
 
 export default CompletionStatus;

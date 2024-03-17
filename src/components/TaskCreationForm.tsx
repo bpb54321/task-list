@@ -1,4 +1,3 @@
-import { CompletionStatus } from "@/types/CompletionStatus.ts";
 import { Task } from "@/types/Task.ts";
 import React, { useState } from "react";
 
@@ -10,7 +9,7 @@ function TaskCreationForm({ onCreateTask }: TaskCreationFormProps) {
   const [taskName, setTaskName] = useState("");
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onCreateTask(new Task(taskName, CompletionStatus.Uncompleted));
+    onCreateTask(new Task(taskName, false));
     setTaskName("");
   };
   return (

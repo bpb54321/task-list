@@ -13,10 +13,10 @@ function TaskItem({ task, onDelete, onCompletionStatusChange }: TaskItemProps) {
       <input
         type="checkbox"
         onChange={() => onCompletionStatusChange(task.id)}
-        checked={task.isCompleted()}
+        checked={task.isCompleted}
       />
       <span>{task.name}</span>|
-      <CompletionStatus completionStatus={task.completionStatus} />
+      <CompletionStatus isCompleted={task.isCompleted} />
       <button type="button" onClick={() => onDelete(task.id)}>
         Delete task
       </button>
