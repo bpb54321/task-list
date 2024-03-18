@@ -1,5 +1,5 @@
 import { Task } from "@/types/Task.ts";
-import { Button, Card, TextField } from "@radix-ui/themes";
+import { Box, Button, Card, Heading, Text, TextField } from "@radix-ui/themes";
 import React, { useState } from "react";
 
 interface TaskCreationFormProps {
@@ -16,13 +16,20 @@ function TaskCreationForm({ onCreateTask }: TaskCreationFormProps) {
   return (
     <Card>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="task-name">Task Name</label>
-        <TextField.Input
-          id="task-name"
-          type="text"
-          value={taskName}
-          onChange={(event) => setTaskName(event.target.value)}
-        ></TextField.Input>
+        <Heading as="h2" mb="5">
+          New Task
+        </Heading>
+        <Box display="block" mb="5">
+          <Text as="label">
+            Task Name
+            <TextField.Input
+              id="task-name"
+              type="text"
+              value={taskName}
+              onChange={(event) => setTaskName(event.target.value)}
+            ></TextField.Input>
+          </Text>
+        </Box>
         <Button>Create Task</Button>
       </form>
     </Card>
