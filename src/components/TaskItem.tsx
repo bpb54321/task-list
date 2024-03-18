@@ -1,6 +1,7 @@
 import CompletionStatus from "@/components/CompletionStatus.tsx";
 import type { Task } from "@/types/Task.ts";
 import classes from "@/components/TaskItem.module.css";
+import { Checkbox } from "@radix-ui/themes";
 
 export interface TaskItemProps {
   task: Task;
@@ -11,9 +12,8 @@ export interface TaskItemProps {
 function TaskItem({ task, onDelete, onCompletionStatusChange }: TaskItemProps) {
   return (
     <li className={classes.taskItem}>
-      <input
-        type="checkbox"
-        onChange={() => onCompletionStatusChange(task.id)}
+      <Checkbox
+        onClick={() => onCompletionStatusChange(task.id)}
         checked={task.isCompleted}
       />
       <span>{task.name}</span>|
