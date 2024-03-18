@@ -1,0 +1,6 @@
+.taskItem {
+    font-size: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}

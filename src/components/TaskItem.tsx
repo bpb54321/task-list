@@ -1,5 +1,6 @@
 import CompletionStatus from "@/components/CompletionStatus.tsx";
 import type { Task } from "@/types/Task.ts";
+import classes from "@/components/TaskItem.module.css";
 
 export interface TaskItemProps {
   task: Task;
@@ -9,7 +10,7 @@ export interface TaskItemProps {
 
 function TaskItem({ task, onDelete, onCompletionStatusChange }: TaskItemProps) {
   return (
-    <li>
+    <li className={classes.taskItem}>
       <input
         type="checkbox"
         onChange={() => onCompletionStatusChange(task.id)}
