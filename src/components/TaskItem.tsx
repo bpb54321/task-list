@@ -17,7 +17,7 @@ function TaskItem({ task, onDelete, onCompletionStatusChange }: TaskItemProps) {
         onClick={() => onCompletionStatusChange(task.id)}
         checked={task.isCompleted}
       />
-      <span>{task.name}</span>|
+      <span>{task.name}</span>
       <CompletionStatus isCompleted={task.isCompleted} />
       <IconButton onClick={() => onDelete(task.id)}>
         <AccessibleIcon label={"Delete"}>
