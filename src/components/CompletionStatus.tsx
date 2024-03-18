@@ -6,7 +6,7 @@ interface CompletionStatusProps {
 function CompletionStatus({ isCompleted }: CompletionStatusProps) {
   return (
     <Badge color={isCompleted ? "green" : "indigo"}>
-      {isCompleted ? "Completed" : "Uncompleted"}
+      {isCompleted ? "Completed" : "Not completed"}
     </Badge>
   );
 }
