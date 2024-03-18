@@ -1,5 +1,6 @@
 import TaskItem from "@/components/TaskItem.tsx";
 import type { Task } from "@/types/Task.ts";
+import classes from "@/components/TaskList.module.css";
 
 export interface TaskListProps {
   tasks: Task[];
@@ -13,7 +14,7 @@ function TaskList({
   onTaskCompletionStatusChange,
 }: TaskListProps) {
   return (
-    <ul>
+    <ul className={classes.taskList}>
       {tasks.map((task) => (
         <TaskItem
           key={task.id}

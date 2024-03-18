@@ -1,4 +1,5 @@
 import { Task } from "@/types/Task.ts";
+import { Button } from "@radix-ui/themes";
 import React, { useState } from "react";
 
 interface TaskCreationFormProps {
@@ -21,7 +22,7 @@ function TaskCreationForm({ onCreateTask }: TaskCreationFormProps) {
         value={taskName}
         onChange={(event) => setTaskName(event.target.value)}
       />
-      <input type="submit" />
+      <Button>Create Task</Button>
     </form>
   );
 }

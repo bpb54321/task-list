@@ -1,7 +1,8 @@
 import CompletionStatus from "@/components/CompletionStatus.tsx";
 import type { Task } from "@/types/Task.ts";
 import classes from "@/components/TaskItem.module.css";
-import { Checkbox } from "@radix-ui/themes";
+import { TrashIcon } from "@radix-ui/react-icons";
+import { AccessibleIcon, Checkbox, IconButton } from "@radix-ui/themes";
 
 export interface TaskItemProps {
   task: Task;
@@ -18,9 +19,11 @@ function TaskItem({ task, onDelete, onCompletionStatusChange }: TaskItemProps) {
       />
       <span>{task.name}</span>|
       <CompletionStatus isCompleted={task.isCompleted} />
-      <button type="button" onClick={() => onDelete(task.id)}>
-        Delete task
-      </button>
+      <IconButton onClick={() => onDelete(task.id)}>
+        <AccessibleIcon label={"Delete"}>
+          <TrashIcon />
+        </AccessibleIcon>
+      </IconButton>
     </li>
   );
 }
