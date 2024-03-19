@@ -7,10 +7,11 @@ export class Task {
     public isCompleted: boolean,
   ) {}
 
-  copy(shouldToggleCompletionStatus: boolean): Task {
-    return new Task(
-      this.name,
-      shouldToggleCompletionStatus ? !this.isCompleted : this.isCompleted,
-    );
+  copy(): Task {
+    return new Task(this.name, this.isCompleted);
+  }
+
+  copyWithToggledStatus(): Task {
+    return new Task(this.name, !this.isCompleted);
   }
 }

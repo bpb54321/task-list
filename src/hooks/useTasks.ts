@@ -10,7 +10,9 @@ export function useTasks(initialTasks: Task[]) {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
   const handleTaskCompletionStatusChange = (taskId: string) => {
-    const updatedTasks = tasks.map((task) => task.copy(task.id === taskId));
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? task.copyWithToggledStatus() : task.copy(),
+    );
     setTasks(updatedTasks);
   };
   return {
